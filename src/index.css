@@ -1,0 +1,55 @@
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@media (max-width: 989px) {
+  .mediaQuerieapply{
+    flex-direction: column;
+    /* justify-items: ; */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+  }
+}
+
+
+/* table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid red;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+} */
+
+
+
+@media (max-width: 756px) {
+  .HeaderDiv{
+    flex-direction: column;
+    /* justify-items: ; */
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+  }
+}
+@media (max-width: 573px) {
+  .secondHeader{
+    flex-direction: column;
+    /* justify-items: ; */
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+  }
+}
+
+
