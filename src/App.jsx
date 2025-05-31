@@ -19,7 +19,7 @@ const router=createBrowserRouter([
   },
   
   {
-    path: '/form/:formId/:slug',
+    path: '/form/:formId',
     element: <div><FormViewer/></div>
   },{
     path:"/form/:id/submitted",
