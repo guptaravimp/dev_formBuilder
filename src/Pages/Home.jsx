@@ -6,8 +6,8 @@ import Footer from '../components/Common/Footer';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { setformData } from '../slices/FormDataSlice';
-import "@theme-toggles/react/css/Classic.css"
-import { Classic } from "@theme-toggles/react"
+import { MdDarkMode } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 import FormCard from '../components/FormCard';
 function Home() {
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function Home() {
 
             localStorage.setItem("Allforms", JSON.stringify(existingForm));
 
-           
+
             const formId = formData._id;
             console.log("Result is", formData);
 
@@ -63,9 +63,10 @@ function Home() {
                     className={`p-2 text-4xl   rounded ${theme === "light" ? "bg-transparent text-white" : "bg-transparent text-[#1D1C20]"}  `}
                     onClick={() => dispatch(setThemeToggle())}
                 >
-                    {theme === 'light' ? <Classic className='  text-4xl' duration={750} />
-                        : <Classic className='text-4xl' duration={750} reversed />
-                    }
+                        {theme === 'light'? <MdDarkMode />
+                          : <MdLightMode />
+                         }
+
                 </button>
             </div>
 

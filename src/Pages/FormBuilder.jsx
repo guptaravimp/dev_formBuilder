@@ -6,10 +6,12 @@ import { updateField } from '../slices/FormDataSlice';
 import { useForm } from 'react-hook-form';
 import { MdOutlineCircle } from "react-icons/md";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
-import { FaToggleOff } from "react-icons/fa";
+
 
 import "react-toastify/dist/ReactToastify.css";
+import { MdDarkMode } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
+
 
 
 import { FaToggleOn } from "react-icons/fa";
@@ -18,12 +20,10 @@ import axios from 'axios';
 import { IoLink } from "react-icons/io5";
 import { MdAddCircle } from "react-icons/md";
 import { RxDragHandleHorizontal } from "react-icons/rx";
-import "@theme-toggles/react/css/Classic.css"
-import { Classic } from "@theme-toggles/react"
 
 
 
-/// drag functionality
+
 import {
   DndContext,
   closestCenter,
@@ -147,7 +147,6 @@ function FormBuilder() {
   const addField = async () => {
     try {
       const newStep = await CreateSteps({ label: "", type: "radio", options: [""] });
-      // setFormSteps(prev => [...prev, newStep]);
       setFormSteps(prev => {
         const updated = [...prev, newStep];
         console.log("Updated form steps after adding:", updated);
@@ -176,7 +175,6 @@ function FormBuilder() {
     updatedSteps[index][key] = value;
     setFormSteps(updatedSteps);
 
-    // Send update to backend
     const stepId = updatedSteps[index]._id;
     if (stepId) {
       await updateStepAPI(stepId, updatedSteps[index]);
@@ -227,7 +225,7 @@ function FormBuilder() {
   const addOption = (stepIndex) => {
     const updatedSteps = [...formSteps];
     if (!updatedSteps[stepIndex].options) {
-      updatedSteps[stepIndex].options = []; // Initialize if not present
+      updatedSteps[stepIndex].options = []; 
     }
     updatedSteps[stepIndex].options.push("");
     setFormSteps(updatedSteps);
@@ -298,7 +296,6 @@ function FormBuilder() {
       }, {
         withCredentials: true,
       });
-      // setPublished(true)
       console.log("Published response", response)
       setFormMeta(response?.data?.data)
       return response;
@@ -332,16 +329,13 @@ function FormBuilder() {
 
       const existingForms = JSON.parse(localStorage.getItem("Allforms")) || [];
 
-      // Check if form already exists by _id
       const formIndex = existingForms.findIndex(form => form._id === formId);
 
       const newForm = { ...formDatas, _id: formId,createdAt:Date.now() };
 
       if (formIndex !== -1) {
-        // Form exists, update it
         existingForms[formIndex] = newForm;
       } else {
-        // Form doesn't exist, push it
         existingForms.push(newForm);
       }
 
@@ -353,7 +347,6 @@ function FormBuilder() {
     }
   };
   const handleResponse = () => {
-    // navigate(`/form/${id}/response`);
     console.log("formData is ", formMeta)
     navigate(`/form/${id}/response`)
 
@@ -383,7 +376,6 @@ function FormBuilder() {
       setFormSteps((items) => arrayMove(items, oldIndex, newIndex));
     }
   };
-// toast.configure();
 const handleCopy=()=>{
   copyToClipboard(formMeta?.PublicUrl);
   setOpenLinK(!openLink);
@@ -461,9 +453,10 @@ const handleCopy=()=>{
             className={`p-2 text-4xl   rounded ${theme === "light" ? "bg-transparent text-white" : "bg-transparent text-[#1D1C20]"}  `}
             onClick={() => dispatch(setThemeToggle())}
           >
-            {theme === 'light' ? <Classic className='  text-4xl' duration={750} />
-              : <Classic className='text-4xl' duration={750} reversed />
-            }
+             {theme === 'light'? <MdDarkMode />
+ : <MdLightMode />
+}
+             
           </button>
         </div>
 

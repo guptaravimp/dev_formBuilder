@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import imagelogo from "../assets/image/logo.png"
 import { setThemeToggle } from '../slices/themeToggleSlice';
-import "@theme-toggles/react/css/Classic.css"
-import { Classic } from "@theme-toggles/react"
+import { MdDarkMode } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 function Header() {
     const { theme } = useSelector((state) => state.themeToggle);
@@ -27,9 +27,9 @@ function Header() {
                         className={`p-2 text-4xl   rounded ${theme === "light" ? "bg-transparent text-white" : "bg-transparent text-[#1D1C20]"}  `}
                         onClick={() => dispatch(setThemeToggle())}
                     >
-                        {theme === 'light' ? <Classic className='  text-4xl' duration={750} />
-                            : <Classic className='text-4xl' duration={750} reversed />
-                        }
+                         {theme === 'light'? <MdDarkMode />
+                          : <MdLightMode />
+                         }
                     </button>
                 </div>
 
