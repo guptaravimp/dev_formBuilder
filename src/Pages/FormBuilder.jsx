@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { MdOutlineCircle } from "react-icons/md";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
+import { MdDelete } from "react-icons/md";
 
 import "react-toastify/dist/ReactToastify.css";
 import { MdDarkMode } from "react-icons/md";
