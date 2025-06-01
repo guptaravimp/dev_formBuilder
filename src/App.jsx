@@ -27,7 +27,7 @@ const router=createBrowserRouter([
   },
   
   {
-    path:'/forms/:id/response',
+    path:'/form/:id/response',
     element: <div><Response/></div>
   },
    {
