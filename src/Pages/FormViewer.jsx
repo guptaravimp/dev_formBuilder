@@ -5,9 +5,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 
 function FormViewer() {
-  const { formId, slug } = useParams();
+  const { id} = useParams();
   const [ViewformData, setFormData] = useState(null);
-  const savedResponses = localStorage.getItem(`form-response-${formId}`);
+  const savedResponses = localStorage.getItem(`form-response-${id}`);
   const navigate = useNavigate()
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const { register, handleSubmit, watch, control, reset, formState: { errors } } = useForm({
@@ -18,7 +18,7 @@ function FormViewer() {
     const fetchFormData = async () => {
       try {
         const response = await axios.post(BASE_URL + "/forms/getformData", {
-          formId: formId
+          formId: id
         });
         setFormData(response);
         const fetchedData = response.data;
@@ -33,12 +33,12 @@ function FormViewer() {
     };
 
     fetchFormData();
-  }, [formId]);
+  }, [id]);
 
 
 
   useEffect(() => {
-    const savedResponses = localStorage.getItem(`form-response-${formId}`);
+    const savedResponses = localStorage.getItem(`form-response-${id}`);
     if (savedResponses) {
       reset(JSON.parse(savedResponses));
     }
@@ -47,19 +47,19 @@ function FormViewer() {
 
   useEffect(() => {
     if (ViewformData) {
-      const saved = localStorage.getItem(`form-response-${formId}`);
+      const saved = localStorage.getItem(`form-response-${id}`);
       if (saved) {
         reset(JSON.parse(saved));
       }
     }
-  }, [ViewformData, formId, reset]);
+  }, [ViewformData, id, reset]);
 
 
 
   const watchAll = watch();
   useEffect(() => {
-    localStorage.setItem(`form-response-${formId}`, JSON.stringify(watchAll));
-  }, [watchAll, formId]);
+    localStorage.setItem(`form-response-${id}`, JSON.stringify(watchAll));
+  }, [watchAll, id]);
 
 
 
