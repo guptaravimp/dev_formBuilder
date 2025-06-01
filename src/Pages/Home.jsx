@@ -38,7 +38,7 @@ function Home() {
             const formId = formData._id;
             console.log("Result is", formData);
 
-            navigate(`/form/${formId}/edit`);
+            navigate(`/forms/${formId}/edit`);
         } catch (error) {
             console.error("Error creating form:", error);
             alert("Something went wrong while creating the form.");
