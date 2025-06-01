@@ -20,7 +20,7 @@ function FormCard() {
             <div className={`w-[80%] mt-4 p-2 flex flex-wrap justify-start gap-10 items-center ${theme === 'light' ? "text-white" : "text-white"}`}>
                 {
                     AllFormData.length > 0 ? AllFormData.map((form, index) => (
-                        <button className='h-[400px] bg-[#2C2D32] rounded-xl border-[1px] w-[350px]' onClick={() => navigate(`/form/${form._id}/edit`)}>
+                        <button className='h-[400px] bg-[#2C2D32] rounded-xl border-[1px] w-[350px]' onClick={() => navigate(`/forms/${form._id}/edit`)}>
                             <div key={index} className='flex flex-col rounded-xl justify-start  w-full h-full items-center'>
                                 <img className=' w-full h-[60%] mt-0  rounded-tl-xl rounded-tr-3xl  object-cover' src={form?.image} alt="" />
                                 <div className='w-full mt-2 p-4 border-t-[1px]'>
@@ -31,11 +31,7 @@ function FormCard() {
 
                                         <p className='w-full flex justify-start  items-center'>Created: {new Date(form?.createdAt).toLocaleDateString()}</p>
                                     </div>
-                                    {/* <div className='flex justify-start items-center p-2 gap-1 text-md'>
-                                        <MdOutlineGroup   className='text-2xl'/>
-
-                                        <p className='w-full flex justify-start  items-center'>Updated: {new Date(form?.updatedAt).toLocaleDateString()}</p>
-                                    </div> */}
+                                    
                                 </div>
 
                             </div>
