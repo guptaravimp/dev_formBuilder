@@ -399,28 +399,11 @@ const handleCopy=()=>{
 
         <div className='w-[60%]  secondHeader  flex justify-evenly items-center p-2 gap-6  '>
           <div className='Relative'>
-            {openLink && formMeta.status==='published'  ? (
-              <div className='absolute w-[20%] flex flex-col gap-6 top-20 right-36 bg-white p-2 border rounded-xl shadow-md z-10'>
-                <div className='w-full flex flex-col justify-between items-start p-2 gap-3'>
-                  <p className='text-xl w-full text-black font-semibold'>Your Shareable Link:</p>
-                  <input
-                    type="text"
-                    className='text-blue-700 text-md  outline-none border-b-2 w-full'
-                    value={formMeta.PublicUrl}
-                    readOnly
-                  />
-                </div>
-
-                <div className='flex justify-end items-center'>
-                  <button
-                    onClick={handleCopy}
-                    className='px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600'
-                  >
-                    Copy Link
-                  </button>
-                </div>
-              </div>
-            ) : (openLink &&  
+           {formMeta.status === 'published' ? (
+              <button className='text-4xl ' onClick={HandleLink}>
+                <IoLink />
+              </button>
+            ) : ( openLink && 
               <div className='absolute w-[20%] flex flex-col gap-2 top-20 right-36 bg-white p-2 border rounded-xl shadow-md z-10'>
                 <div className='w-full flex flex-col justify-between items-start p-2 gap-1'>
                   <p className='text-xl w-full text-black font-semibold'>The form is unpublished</p>
@@ -438,10 +421,6 @@ const handleCopy=()=>{
               </div>
             )}
 
-
-            <button className='text-4xl ' onClick={() => setOpenLinK(prev => !prev)}>
-              <IoLink />
-            </button>
           </div>
 
           <button
