@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 
 function FormViewer() {
-  const { id} = useParams();
+  const {id} = useParams();
   const [ViewformData, setFormData] = useState(null);
   const savedResponses = localStorage.getItem(`form-response-${id}`);
   const navigate = useNavigate()
@@ -20,8 +20,9 @@ function FormViewer() {
         const response = await axios.post(BASE_URL + "/forms/getformData", {
           formId: id
         });
-        setFormData(response);
+        // setFormData(response);
         const fetchedData = response.data;
+        console.log("response",response)
         localStorage.setItem("ViewformData", JSON.stringify(fetchedData));
       } catch (error) {
         console.error("Error fetching form data", error);
