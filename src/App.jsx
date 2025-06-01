@@ -22,12 +22,12 @@ const router=createBrowserRouter([
     path: '/forms/:id/published',
     element: <div><FormViewer/></div>
   },{
-    path:"/form/:id/submitted",
+    path:"/forms/:id/submitted",
     element:<SuccessfullSubmitted/>
   },
   
   {
-    path:'/form/:id/response',
+    path:'/forms/:id/response',
     element: <div><Response/></div>
   },
    {
