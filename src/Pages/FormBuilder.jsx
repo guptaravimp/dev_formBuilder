@@ -378,10 +378,15 @@ function FormBuilder() {
       setFormSteps((items) => arrayMove(items, oldIndex, newIndex));
     }
   };
-const handleCopy=()=>{
-  copyToClipboard(formMeta?.PublicUrl);
-  setOpenLinK(!openLink);
-}
+const handleCopy = () => {
+    copyToClipboard(formMeta?.PublicUrl);
+    setOpenLinK(!openLink);
+  }
+
+  const HandleLink = () => {
+    //  setOpenLinK(prev => !prev)
+    navigate(`/forms/${id}/published`)
+  }
   return (
 
     <div className=' flex flex-col justify-evenly items-center m-auto w-full '>
