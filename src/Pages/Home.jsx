@@ -8,6 +8,7 @@ import axios from 'axios';
 import { setformData } from '../slices/FormDataSlice';
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
+import PreDefinedTemplates from '../components/PreDefinedTemplates';
 import FormCard from '../components/FormCard';
 function Home() {
     const dispatch = useDispatch();
@@ -68,6 +69,10 @@ function Home() {
                          }
 
                 </button>
+            </div>
+
+            <div className={`mx-auto w-[80%] rounded-2xl bg-[#FFFFFF] text-black  flex justify-between items-center  `}>
+                <PreDefinedTemplates />
             </div>
 
             <div className='w-[80%] mediaQuerieapply flex border-[1px] border-gray-500 p-6 rounded-xl bg-[#FFFFFF] text-black'>
