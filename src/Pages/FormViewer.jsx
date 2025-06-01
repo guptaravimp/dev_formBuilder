@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 
 function FormViewer() {
-  const {id} = useParams();
+  const { id} = useParams();
   const [ViewformData, setFormData] = useState(null);
   const savedResponses = localStorage.getItem(`form-response-${id}`);
   const navigate = useNavigate()
@@ -24,6 +24,7 @@ function FormViewer() {
         const fetchedData = response.data;
         console.log("response",response)
         localStorage.setItem("ViewformData", JSON.stringify(fetchedData));
+        setFormData({ data: fetchedData }); 
       } catch (error) {
         console.error("Error fetching form data", error);
         const cached = localStorage.getItem("ViewformData");
@@ -73,11 +74,11 @@ function FormViewer() {
     console.log("Response Array is", responseArray)
     try {
       const response = await axios.post(BASE_URL + "/forms/submitResponse", {
-        form: formId,
+        form: id,
         responses: responseArray
       })
       console.log("Submitted response", response);
-      navigate(`/form/${formId}/submitted`);
+      navigate(`/forms/${id}/submitted`);
 
     } catch (error) {
       alert("Error caused during sunmit form")
