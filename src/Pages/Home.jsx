@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setThemeToggle } from '../slices/themeToggleSlice';
 import imagelogo from "../assets/image/logo.png"
-import HomeImage from '../components/HomeImage';
+import HomeImage from '../components/HomeImage'; 
 import Footer from '../components/Common/Footer';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
