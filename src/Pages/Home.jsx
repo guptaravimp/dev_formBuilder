@@ -17,14 +17,15 @@ function Home() {
 
     const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
     const createFormHandler = async () => {
+        toast.success("Wait for a While")
         try {
-            console.log("call to aaya hai");
+           
             const res = await axios.post(
                 BASE_URL + '/forms/createform',
                 {},
                 { withCredentials: true }
             );
-
+            toast.success("form created Successfully!")
             const formData = res.data.data;
             dispatch(setformData(formData));
             localStorage.setItem("formData", JSON.stringify(formData));
