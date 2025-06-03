@@ -10,6 +10,7 @@ import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import PreDefinedTemplates from '../components/PreDefinedTemplates';
 import FormCard from '../components/FormCard';
+import toast from 'react-hot-toast';
 function Home() {
     const dispatch = useDispatch();
     const navigate = useNavigate()
