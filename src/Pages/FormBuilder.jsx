@@ -342,10 +342,10 @@ function FormBuilder() {
       }
 
       localStorage.setItem("Allforms", JSON.stringify(existingForms));
-      toast("Form published successfully!")
+      toast.success("Form published successfully!")
     } catch (error) {
       console.error("Failed to publish form:", error);
-      toast("Failed to publish form. Please try again.")
+      toast.success("Failed to publish form. Please try again.")
     }
   };
   const handleResponse = () => {
@@ -356,7 +356,7 @@ function FormBuilder() {
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      toast("Link copied to clipboard!")
+      toast.success("Link copied to clipboard!")
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
